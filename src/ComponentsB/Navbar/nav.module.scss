@@ -1,0 +1,53 @@
+.title{
+    font-weight: 700;
+}
+.left_box{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.navigane{
+    width: 1240px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0 0 ;
+    background-color: white;
+}
+.for_search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EBEBEB;
+    border-radius: 25px;
+    width: 530px;
+    padding: 5px 10px;
+    .input{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+    }
+  .GrSearch{
+    color: #EBEBEB;
+  }
+}
+.end_box{
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    .AiOutlineVideoCamera,.FiMenu{
+   font-size: 20px;
+   color: #3333337d;
+}
+.IoIosNotificationsOutline{
+font-size: 22px;
+}
+}
+.position{
+  position: fixed;
+  top: 0;
+  left: 180px;
+}
