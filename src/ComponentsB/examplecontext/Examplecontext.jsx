@@ -1,6 +1,8 @@
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
-import home from '../page/Home/home.module.scss'
+import home from '../page/Home/home.module.scss';
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 export const Mycontext=createContext();
 export const Myprowider=({children})=>{
   const [serach,setserach]=useState('')
@@ -23,22 +25,26 @@ export const Myprowider=({children})=>{
        console.log('hato');
      }
     }
-    console.log(data);
+   
    
      useEffect(()=>{
      fatchDat();
     },[])
+    console.log(data);
     const searchdata=data.filter((el)=>{
-      if (!serach) {
+      if (!serach.trim()) {
        return el
-      }else if (data.snippet?.channelTitle.includes(serach)) {
+      }else if (el.snippet?.channelTitle.toLowerCase().includes(serach.toLowerCase())) {
        return el
       }
       }).map((videos)=>(
-       <div className={home.map} key={videos} > 
+        <Link to={`video/${videos.id.videoId}`}>
+          <div className={home.map} key={videos} > 
        <img className={home.image} src={videos.snippet.thumbnails.medium.url} alt={videos.snippet.title} />
         <h3>{videos.snippet?.channelTitle}</h3>
         </div>
+        </Link>
+     
       ))
     return (
         <Mycontext.Provider value={{searchdata,serach,setserach}}>
